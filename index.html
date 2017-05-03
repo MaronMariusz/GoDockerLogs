@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Logs Reader</title>
+</head>
+<body>
+    <textarea readonly rows="20" cols="200">
+        {{index .Messages .Selected}}
+    </textarea>
+    <form action="/" method="post">
+		<select name="timestamp">
+			{{ range $key, $value := .Messages }}
+				<option value="{{ $key }}">{{ $key }}</option>
+			{{ end }}
+		</select>
+		<button type="submit">Get Data</button>
+	</form>
+</body>
+</html>
